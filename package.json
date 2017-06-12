@@ -4,6 +4,12 @@
   "description": "JavaScript development environment",
   "main": "index.js",
   "scripts": {
+    "start": "npm-run-all --parallel security-check open:src",
+    "open:src": "node buildtools/server.js",
+    "prestart": "node buildtools/startmsg.js",
+    "security-check": "nsp check",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
